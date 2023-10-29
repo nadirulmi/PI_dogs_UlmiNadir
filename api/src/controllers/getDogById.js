@@ -27,6 +27,7 @@ const getDogById = async (req, res) => {
         image, 
         height: dogData.height.metric,
         weight: dogData.weight.metric,
+        temperament: dogData.temperament,
         life_span: dogData.life_span,
       };
 

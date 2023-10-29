@@ -31,6 +31,7 @@ const createDogs = async (req, res) => {
       height,
       weight,
       life_span,
+      temperament,
     });
 
     // Asocia el perro con los temperamentos
