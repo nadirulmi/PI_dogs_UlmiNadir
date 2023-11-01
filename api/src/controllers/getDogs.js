@@ -1,49 +1,61 @@
 const { Dog, Temperament } = require('../db');
 const axios = require('axios');
 const URL = 'https://api.thedogapi.com/v1/breeds';
+const { API_KEY } = process.env;
 
 const getDogs = async (req, res) => {
   try {
     const { name } = req.query;
 
-    const response = await axios.get(URL);
+    // Realizar una solicitud a la API para obtener todas las razas
+    const response = await axios.get(`${URL}?api_key=${API_KEY}`);
 
-    if (response.status !== 200) {
-      return res.status(500).json({ error: 'Error en la solicitud a la API' });
-    }
+    if (response.status === 200) {
+      const apiDogs = response.data.map((dog) => ({
+        id: dog.id,
+        name: dog.name,
+        image: dog.image.url,
+        height: dog.height.metric,
+        weight: dog.weight.metric,
+        temperament: dog.temperament,
+        life_span: dog.life_span,
+        created: false,
+      }));
 
-    const apiDogs = await Promise.all(
-      response.data.map(async (dog) => {
-        const imageResponse = await axios.get(`https://api.thedogapi.com/v1/images/search?breed_ids=${dog.id}`);
-        const image = imageResponse.data[0]?.url || ''; // Usar una imagen por defecto si no hay URL
+      let allDogs = [...apiDogs];
 
-        return {
-          id: dog.id,
-          name: dog.name,
-          image,
-          height: dog.height.metric,
-          weight: dog.weight.metric,
-          temperament: dog.temperament,
-          life_span: dog.life_span,
-          created: false,
-        };
-      })
-    );
+      // Filtrar los perros de la API por el nombre proporcionado
+      if (name) {
+        allDogs = allDogs.filter((dog) => dog.name.toLowerCase().includes(name.toLowerCase()));
+      }
 
-    const databaseDogs = await Dog.findAll({
-      attributes: ['id', 'name', 'image', 'height', 'weight', 'life_span', 'created'],
-      include: Temperament,
-    });
+      // Buscar perros en la base de datos
+      const databaseDogs = await Dog.findAll({
+        include: Temperament,
+      });
 
-    let allDogs = [ ...databaseDogs, ...apiDogs];
+      if (name) {
+        // Filtrar los perros de la base de datos por el nombre proporcionado
+        const filteredDatabaseDogs = databaseDogs.filter((dog) => dog.name.toLowerCase().includes(name.toLowerCase()));
+        allDogs = [...filteredDatabaseDogs, ...allDogs];
+      } else {
+        allDogs = [...databaseDogs, ...allDogs];
+      }
 
-    if (name) {
-      allDogs = allDogs.filter((dog) => dog.name.toLowerCase().includes(name.toLowerCase()));
-    }
+      // Modificar el temperamento de los perros de la base de datos
+      allDogs = allDogs.map((dog) => {
+        if (dog.created) {
+          // Perro creado: transformar los temperamentos
+          const temperamentNames = dog.Temperaments.map((temp) => temp.temperament).join(', ');
+          return {
+            ...dog.dataValues, // Copiar todos los datos existentes
+            temperament: temperamentNames, // Agregar temperamento transformado
+          };
+        }
+        return dog; // Perro de la API, no realizar cambios
+      });
+      
 
-    if (allDogs.length === 0) {
-      return res.status(404).json({ error: `No se encontraron razas con el nombre: ${name}` });
-    } else {
       return res.status(200).json(allDogs);
     }
   } catch (error) {

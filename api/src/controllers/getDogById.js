@@ -1,6 +1,6 @@
 const axios = require('axios');
 const URL = 'https://api.thedogapi.com/v1/breeds/';
-const { Dog } = require('../db');
+const { Dog, Temperament } = require('../db');
 
 const getDogById = async (req, res) => {
   try {
@@ -8,10 +8,22 @@ const getDogById = async (req, res) => {
     const source = isNaN(id) ? "bdd" : "api"
 
     if (source === "bdd") {
-      const findDog = await Dog.findByPk(id);
+      const findDog = await Dog.findByPk(id, {
+        include: Temperament, // Incluye la relación con Temperament
+      });
 
       if (findDog) {
-        return res.status(200).json(findDog);
+        const temperamentNames = findDog.Temperaments.map((temp) => temp.temperament).join(', ');
+
+        return res.status(200).json({
+          id: findDog.id,
+          name: findDog.name,
+          image: findDog.image,
+          height: findDog.height,
+          weight: findDog.weight,
+          life_span: findDog.life_span,
+          temperament: temperamentNames,
+        });
       }
     }
 
@@ -33,11 +45,14 @@ const getDogById = async (req, res) => {
 
       return res.status(200).json(dog);
     }
+
+    return res.status(404).json({ error: "No se encontró ningún perro con ese ID" });
   } catch (error) {
-    return res.status(500).json({error: "No se encontró ningún perro con ese ID"});
+    return res.status(500).json({ error: error.message });
   }
 };
 
 module.exports = {
   getDogById,
 };
+

@@ -16,6 +16,7 @@ const Detail = () =>{
     return(
         <div>
             <h1>{dogsDetail.name}</h1>
+            <p>Id: {dogsDetail.id}</p>
             <p>Height: {dogsDetail.height}</p>
             <p>Weight {dogsDetail.weight}</p>
             <p>Temperament: {dogsDetail.temperament}</p>

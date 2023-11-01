@@ -2,15 +2,15 @@ const { Dog, Temperament } = require('../db');
 
 const createDogs = async (req, res) => {
   try {
-    const { name, image, height, weight, temperament, life_span } = req.body;
+    const { name, image, height, weight, temperaments, life_span } = req.body;
 
-    if (!name || !image || !height || !weight || !temperament || !life_span) {
+    if (!name || !image || !height || !weight || !temperaments || !life_span) {
       throw new Error("Faltan datos");
     }
 
     // Busca los temperamentos en la base de datos y obtén sus IDs
     const temperamentIds = [];
-    for (const temperamentName of temperament) {
+    for (const temperamentName of temperaments) {
       const foundTemperament = await Temperament.findOne({
         where: {
           temperament: temperamentName,
@@ -31,7 +31,7 @@ const createDogs = async (req, res) => {
       height,
       weight,
       life_span,
-      temperament,
+      temperaments,
     });
 
     // Asocia el perro con los temperamentos

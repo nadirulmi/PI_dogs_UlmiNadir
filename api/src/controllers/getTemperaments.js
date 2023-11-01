@@ -22,14 +22,20 @@ const getTemperaments = async (req, res) => {
 
       const temperamentsArray = Array.from(uniqueTemperaments);
 
-      // Crear un arreglo de objetos para bulkCreate
-      const temperamentsToInsert = temperamentsArray.map((temperament) => ({ temperament: temperament }));
-
-      // Utilizar bulkCreate para insertar los temperamentos en la base de datos
-      await Temperament.bulkCreate(temperamentsToInsert);
+      for (const temperament of temperamentsArray) {
+        // Intenta encontrar el temperamento en la base de datos o créalo si no existe
+        await Temperament.findOrCreate({
+          where: {
+            temperament: temperament,
+          },
+          defaults: { temperament: temperament }, // Valor a crear si no existe
+        });
+      }
 
       // Una vez completada la operación, busca todos los temperamentos en la base de datos
-      const allTemperaments = await Temperament.findAll();
+      const allTemperaments = await Temperament.findAll({
+        attributes: ['temperament'], // Solo obtener el nombre
+      });
 
       res.status(200).json(allTemperaments);
     }
@@ -41,3 +47,5 @@ const getTemperaments = async (req, res) => {
 module.exports = {
   getTemperaments,
 };
+
+

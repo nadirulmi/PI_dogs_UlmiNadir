@@ -7,7 +7,7 @@ export default function Card({id,name,weight,temperament,image}) {
         <h2>{name}</h2>
       </Link>
       <p>Weight: {weight}</p>
-      <p>{temperament}</p>
+      <p>Temperament: {temperament}</p>
       <img src={image} alt={name} width={200} />
     </div>
   );
