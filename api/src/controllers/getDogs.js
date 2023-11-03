@@ -1,6 +1,6 @@
-const { Dog, Temperament } = require('../db');
-const axios = require('axios');
-const URL = 'https://api.thedogapi.com/v1/breeds';
+const { Dog, Temperament } = require("../db");
+const axios = require("axios");
+const URL = "https://api.thedogapi.com/v1/breeds";
 const { API_KEY } = process.env;
 
 const getDogs = async (req, res) => {
@@ -26,7 +26,9 @@ const getDogs = async (req, res) => {
 
       // Filtrar los perros de la API por el nombre proporcionado
       if (name) {
-        allDogs = allDogs.filter((dog) => dog.name.toLowerCase().includes(name.toLowerCase()));
+        allDogs = allDogs.filter((dog) =>
+          dog.name.toLowerCase().includes(name.toLowerCase())
+        );
       }
 
       // Buscar perros en la base de datos
@@ -36,7 +38,9 @@ const getDogs = async (req, res) => {
 
       if (name) {
         // Filtrar los perros de la base de datos por el nombre proporcionado
-        const filteredDatabaseDogs = databaseDogs.filter((dog) => dog.name.toLowerCase().includes(name.toLowerCase()));
+        const filteredDatabaseDogs = databaseDogs.filter((dog) =>
+          dog.name.toLowerCase().includes(name.toLowerCase())
+        );
         allDogs = [...filteredDatabaseDogs, ...allDogs];
       } else {
         allDogs = [...databaseDogs, ...allDogs];
@@ -46,7 +50,9 @@ const getDogs = async (req, res) => {
       allDogs = allDogs.map((dog) => {
         if (dog.created) {
           // Perro creado: transformar los temperamentos
-          const temperamentNames = dog.Temperaments.map((temp) => temp.temperament).join(', ');
+          const temperamentNames = dog.Temperaments.map(
+            (temp) => temp.temperament
+          ).join(", ");
           return {
             ...dog.dataValues, // Copiar todos los datos existentes
             temperament: temperamentNames, // Agregar temperamento transformado
@@ -54,7 +60,6 @@ const getDogs = async (req, res) => {
         }
         return dog; // Perro de la API, no realizar cambios
       });
-      
 
       return res.status(200).json(allDogs);
     }
@@ -64,7 +69,3 @@ const getDogs = async (req, res) => {
 };
 
 module.exports = { getDogs };
-
-
-
-

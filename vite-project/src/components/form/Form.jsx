@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createDog, getTemperaments } from "../../redux/actions/actions";
+import validation from "./validation";
+import { useNavigate } from "react-router-dom";
 
 export const Form = () => {
+  const navigate = useNavigate();
   const tempers = useSelector((state) => state.Alltemperaments);
-  
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getTemperaments());
-  }, []);
-
   const initialDogsForm = {
     name: "",
     min_weight: "",
@@ -22,8 +18,26 @@ export const Form = () => {
     image: "",
   };
 
+  const dispatch = useDispatch();
   const [dogsForm, setDogsForm] = useState(initialDogsForm);
   const [selectedTemperaments, setSelectedTemperaments] = useState([]);
+  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    dispatch(getTemperaments());
+    if (
+      dogsForm.name !== "" ||
+      dogsForm.max_weight !== "" ||
+      dogsForm.min_height !== "" ||
+      dogsForm.max_height !== "" ||
+      dogsForm.life_span !== "" ||
+      dogsForm.image !== "" ||
+      dogsForm.temperaments !== ""
+    ) {
+      const userValidated = validation(dogsForm, selectedTemperaments);
+      setErrors(userValidated);
+    }
+  }, [dogsForm, selectedTemperaments]);
 
   const handleForm = (event) => {
     const { name, value } = event.target;
@@ -35,6 +49,9 @@ export const Form = () => {
 
   const handleTemperaments = (event) => {
     const selectedTemperament = event.target.value;
+
+    if (selectedTemperaments.length >= 5) return;
+
     if (!selectedTemperaments.includes(selectedTemperament)) {
       setSelectedTemperaments([...selectedTemperaments, selectedTemperament]);
     }
@@ -58,6 +75,7 @@ export const Form = () => {
     };
     dispatch(createDog(combinedData));
     alert("Datos cargados");
+    navigate("/dogs");
   };
 
   const handleReset = () => {
@@ -77,6 +95,11 @@ export const Form = () => {
           name="name"
           onChange={handleForm}
         />
+        {errors.name && (
+          <p style={{ color: "red" }} className="error">
+            {errors.name}
+          </p>
+        )}
         <br />
         <br />
         <label htmlFor="min_weight">Min weight:</label>
@@ -87,6 +110,11 @@ export const Form = () => {
           name="min_weight"
           onChange={handleForm}
         />
+        {errors.min_weight && (
+          <p style={{ color: "red" }} className="error">
+            {errors.min_weight}
+          </p>
+        )}
         <br />
         <br />
         <label htmlFor="max_weight">Max weight:</label>
@@ -97,6 +125,11 @@ export const Form = () => {
           name="max_weight"
           onChange={handleForm}
         />
+        {errors.max_weight && (
+          <p style={{ color: "red" }} className="error">
+            {errors.max_weight}
+          </p>
+        )}
         <br />
         <br />
         <label htmlFor="min_height">Min height:</label>
@@ -107,6 +140,11 @@ export const Form = () => {
           name="min_height"
           onChange={handleForm}
         />
+        {errors.min_height && (
+          <p style={{ color: "red" }} className="error">
+            {errors.min_height}
+          </p>
+        )}
         <br />
         <br />
         <label htmlFor="max_height">Max height:</label>
@@ -117,19 +155,26 @@ export const Form = () => {
           name="max_height"
           onChange={handleForm}
         />
+        {errors.max_height && (
+          <p style={{ color: "red" }} className="error">
+            {errors.max_height}
+          </p>
+        )}
         <br />
         <br />
-        <label htmlFor="life_span">Life span: </label>
+        <label htmlFor="life_span">Life span (between 1 and 32):</label>
         <input
-          type="text"
+          type="number"
           value={dogsForm.life_span}
           id="life_span"
           name="life_span"
+          min="1"
+          max="32"
           onChange={handleForm}
         />
         <br />
         <br />
-        <label htmlFor="image">Add your url image:</label>
+        <label htmlFor="image">Add your URL image:</label>
         <input
           type="url"
           value={dogsForm.image}
@@ -137,6 +182,11 @@ export const Form = () => {
           name="image"
           onChange={handleForm}
         />
+        {errors.image && (
+          <p style={{ color: "red" }} className="error">
+            {errors.image}
+          </p>
+        )}
         <br />
         <br />
         <label htmlFor="temperaments">Add temperaments:</label>
@@ -148,6 +198,11 @@ export const Form = () => {
             </option>
           ))}
         </select>
+        {errors.temperaments && (
+          <p style={{ color: "red" }} className="error">
+            {errors.temperaments}
+          </p>
+        )}
         <br />
         <div className="selected-temperaments">
           {selectedTemperaments.map((selectedTemp, index) => (
@@ -163,7 +218,28 @@ export const Form = () => {
           ))}
         </div>
         <br />
-        <input type="submit" value="Create" />
+        <input
+          type="submit"
+          value="Create"
+          disabled={
+            !dogsForm.name ||
+            !dogsForm.min_weight ||
+            !dogsForm.max_weight ||
+            !dogsForm.min_height ||
+            !dogsForm.max_height ||
+            !dogsForm.life_span ||
+            !dogsForm.image ||
+            !dogsForm.temperaments ||
+            errors.name ||
+            errors.min_weight ||
+            errors.max_weight ||
+            errors.min_height ||
+            errors.max_height ||
+            errors.image ||
+            errors.temperaments ||
+            errors.life_span
+          }
+        />
         <input type="reset" value="Reset" />
       </form>
     </div>

@@ -5,6 +5,8 @@ import {
   ORDER_DOGS,
   SEARCH_DOGS,
   GET_TEMPERAMENTS,
+  ORDER_SOURCE,
+  FILTER_TEMPERAMENTS
 } from "../actionsTypes/actionsTypes";
 import axios from "axios";
 
@@ -100,4 +102,15 @@ export const cleanDogs = () => {
 
 export const orderDogs = () => {
   return { type: ORDER_DOGS };
+};
+
+export const orderSource = (source) => {
+  return { type: ORDER_SOURCE, payload: source };
+}
+
+export const temperamentFilter = (temperaments) => {
+  return {
+    type: FILTER_TEMPERAMENTS,
+    payload: temperaments,
+  };
 };

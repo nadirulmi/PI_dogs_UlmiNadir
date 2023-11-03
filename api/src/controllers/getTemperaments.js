@@ -15,7 +15,7 @@ const getTemperaments = async (req, res) => {
       const uniqueTemperaments = new Set(
         data
           .map((dog) => dog.temperament)
-          .join(', ') // Unir todas las cadenas en una cadena separada por comas
+          .join(", ") // Unir todas las cadenas en una cadena separada por comas
           .split(/,\s*/) // Dividir por comas seguidas de espacios
           .filter((temperament) => temperament.length > 0) // Eliminar cadenas vacías
       );
@@ -34,7 +34,7 @@ const getTemperaments = async (req, res) => {
 
       // Una vez completada la operación, busca todos los temperamentos en la base de datos
       const allTemperaments = await Temperament.findAll({
-        attributes: ['temperament'], // Solo obtener el nombre
+        attributes: ["temperament"], // Solo obtener el nombre
       });
 
       res.status(200).json(allTemperaments);
@@ -47,5 +47,3 @@ const getTemperaments = async (req, res) => {
 module.exports = {
   getTemperaments,
 };
-
-

@@ -1,4 +1,4 @@
-const { Dog, Temperament } = require('../db');
+const { Dog, Temperament } = require("../db");
 
 const createDogs = async (req, res) => {
   try {
@@ -15,7 +15,7 @@ const createDogs = async (req, res) => {
         where: {
           temperament: temperamentName,
         },
-        attributes: ['id'],
+        attributes: ["id"],
       });
 
       if (foundTemperament) {
@@ -44,4 +44,3 @@ const createDogs = async (req, res) => {
 };
 
 module.exports = { createDogs };
-
