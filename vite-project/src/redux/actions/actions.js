@@ -6,7 +6,8 @@ import {
   SEARCH_DOGS,
   GET_TEMPERAMENTS,
   ORDER_SOURCE,
-  FILTER_TEMPERAMENTS
+  FILTER_TEMPERAMENTS,
+  ORDER_WEIGHT
 } from "../actionsTypes/actionsTypes";
 import axios from "axios";
 
@@ -113,4 +114,8 @@ export const temperamentFilter = (temperaments) => {
     type: FILTER_TEMPERAMENTS,
     payload: temperaments,
   };
+};
+
+export const orderWeight = (order) => {
+  return { type: ORDER_WEIGHT, payload: order };
 };

@@ -7,6 +7,7 @@ import {
   GET_TEMPERAMENTS,
   ORDER_SOURCE,
   FILTER_TEMPERAMENTS,
+  ORDER_WEIGHT
 } from "../actionsTypes/actionsTypes";
 
 const initialState = {
@@ -23,7 +24,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         Alldogs: action.payload,
-        FilteredDogs: action.payload, //copia 
+        FilteredDogs: action.payload, //copia
       };
 
     case GET_TEMPERAMENTS:
@@ -85,9 +86,8 @@ const reducer = (state = initialState, action) => {
 
     case FILTER_TEMPERAMENTS: {
       const selectedTemperament = action.payload;
-      const allDogs = state.FilteredDogs;
 
-      const filteredDogs = allDogs.filter((dog) => {
+      const filteredDogs = state.FilteredDogs.filter((dog) => {
         return dog.temperament && dog.temperament.includes(selectedTemperament);
       });
 
@@ -96,6 +96,34 @@ const reducer = (state = initialState, action) => {
         Alldogs: filteredDogs,
       };
     }
+
+    case ORDER_WEIGHT: {
+      let order = action.payload;
+      let sortedDogsWeight;
+      let newOrder = state.order === "Ascendente" ? "Descendente" : "Ascendente";
+    
+      if (order === 'minWeight') {
+        sortedDogsWeight = [...state.FilteredDogs].sort((dog1, dog2) => {
+          const weightA = parseInt(dog1.weight.split(' - ')[0]);
+          const weightB = parseInt(dog2.weight.split(' - ')[0]);
+          return weightA - weightB;
+        });
+      } else if (order === 'maxWeight') {
+        sortedDogsWeight = [...state.FilteredDogs].sort((dog1, dog2) => {
+          const weightA = parseInt(dog1.weight.split(' - ')[1]);
+          const weightB = parseInt(dog2.weight.split(' - ')[1]);
+          return weightB - weightA;
+        }) 
+      }
+    
+      return {
+        ...state,
+        Alldogs: sortedDogsWeight,
+        order: newOrder,
+      };
+    }
+    
+    
 
     default:
       return { ...state };

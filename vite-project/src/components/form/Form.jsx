@@ -162,9 +162,9 @@ export const Form = () => {
         )}
         <br />
         <br />
-        <label htmlFor="life_span">Life span (between 1 and 32):</label>
+        <label htmlFor="life_span">Life span:</label>
         <input
-          type="number"
+          type="text"
           value={dogsForm.life_span}
           id="life_span"
           name="life_span"
@@ -172,6 +172,9 @@ export const Form = () => {
           max="32"
           onChange={handleForm}
         />
+         <p style={{ color: "red" }} className="error">
+            {errors.life_span}
+          </p>
         <br />
         <br />
         <label htmlFor="image">Add your URL image:</label>

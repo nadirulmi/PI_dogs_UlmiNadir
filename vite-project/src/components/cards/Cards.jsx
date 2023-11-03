@@ -10,8 +10,9 @@ import {
   orderSource,
   getTemperaments,
   temperamentFilter,
+  orderWeight,
 } from "../../redux/actions/actions";
-
+import Select from "./Select";
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ export default function Cards() {
   const indexOfLastDog = currentPage * dogsPerPage;
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
   const currentDogs = dogs.slice(indexOfFirstDog, indexOfLastDog);
-  
+
   const nextPage = () => {
     setCurrentPage(currentPage + 1);
   };
@@ -52,10 +53,14 @@ export default function Cards() {
     setCurrentPage(1);
   };
 
+  const handleWeightOrder = (event) => {
+    dispatch(orderWeight(event.target.value));
+  };
+
   const onSearch = (newName) => {
     try {
       if (newName.trim() === "") {
-        // Si el valor de busqueda esta vacio restablezco el número de páginas 
+        // Si el valor de busqueda esta vacio restablezco el número de páginas
         dispatch(getDogs());
         setCurrentPage(1);
       } else {
@@ -70,43 +75,13 @@ export default function Cards() {
   return (
     <div>
       <SearchBar onSearch={onSearch} />
-      <select name="order" onChange={handleOrder}>
-        <option key="asc" value="Ascendente">
-          Ascendente
-        </option>
-        <option key="desc" value="Descendente">
-          Descendente
-        </option>
-      </select>
-      <select name="source" onChange={handleSource}>
-        <option key="all" value="all">
-          All
-        </option>
-        <option key="api" value="api">
-          Api
-        </option>
-        <option key="dbb" value="dbb">
-          Data Base
-        </option>
-      </select>
-      <select name="weight">
-        <option key="min_weight" value="minWeight">
-          Min Weight
-        </option>
-        <option key="max_weight" value="maxWeight">
-          Max Weight
-        </option>
-      </select>
-      <select name="temperaments" onChange={handleTemperaments}>
-        <option key="all_temperaments" value="">
-          All
-        </option>
-        {tempers?.map((temp, index) => (
-          <option key={index} value={temp.temperament}>
-            {temp.temperament}
-          </option>
-        ))}
-      </select>
+      <Select
+        handleOrder={handleOrder}
+        handleSource={handleSource}
+        handleWeightOrder={handleWeightOrder}
+        handleTemperaments={handleTemperaments}
+        tempers={tempers}
+      />
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

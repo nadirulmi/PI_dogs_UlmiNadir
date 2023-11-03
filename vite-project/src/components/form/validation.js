@@ -36,6 +36,12 @@ const validation = (dogsForm, selectedTemperaments) => {
     errors.max_height = "The maximus height can only contain numbers";
   }
 
+  if(dogsForm.life_span < 1 || dogsForm.life_span > 32){
+    errors.life_span = "Life span should be between 1 and 32 years"
+  }else if (!/^\d+$/.test(dogsForm.life_span)) {
+    errors.life_span = "Life span can only contain numbers";
+  }
+
   if (
     !/^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/.test(
       dogsForm.image
