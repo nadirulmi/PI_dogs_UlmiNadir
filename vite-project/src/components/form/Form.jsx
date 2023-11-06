@@ -89,149 +89,151 @@ export const Form = () => {
       <h1>Create your Dog</h1>
       <div className={style.container}>
         <form onSubmit={handleSubmit} onReset={handleReset}>
-          <div className={style.name}>
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              value={dogsForm.name}
-              id="name"
-              name="name"
-              onChange={handleForm}
-            />
-            {errors.name && (
+          <div className={style.form}>
+            <div className={style.name}>
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                value={dogsForm.name}
+                id="name"
+                name="name"
+                onChange={handleForm}
+              />
+              {errors.name && (
+                <p style={{ color: "red" }} className="error">
+                  {errors.name}
+                </p>
+              )}
+            </div>
+
+            <div className={style.min_weight}>
+              <label htmlFor="min_weight">Min weight:</label>
+              <input
+                type="text"
+                value={dogsForm.min_weight}
+                id="min_weight"
+                name="min_weight"
+                onChange={handleForm}
+              />
+              {errors.min_weight && (
+                <p style={{ color: "red" }} className="error">
+                  {errors.min_weight}
+                </p>
+              )}
+            </div>
+
+            <div className={style.max_weight}>
+              <label htmlFor="max_weight">Max weight:</label>
+              <input
+                type="text"
+                value={dogsForm.max_weight}
+                id="max_weight"
+                name="max_weight"
+                onChange={handleForm}
+              />
+              {errors.max_weight && (
+                <p style={{ color: "red" }} className="error">
+                  {errors.max_weight}
+                </p>
+              )}
+            </div>
+
+            <div className={style.min_height}>
+              <label htmlFor="min_height">Min height:</label>
+              <input
+                type="text"
+                value={dogsForm.min_height}
+                id="min_height"
+                name="min_height"
+                onChange={handleForm}
+              />
+              {errors.min_height && (
+                <p style={{ color: "red" }} className="error">
+                  {errors.min_height}
+                </p>
+              )}
+            </div>
+          </div>
+
+          <div className={style.form}>
+            <div className={style.max_height}>
+              <label htmlFor="max_height">Max height:</label>
+              <input
+                type="text"
+                value={dogsForm.max_height}
+                id="max_height"
+                name="max_height"
+                onChange={handleForm}
+              />
+              {errors.max_height && (
+                <p style={{ color: "red" }} className="error">
+                  {errors.max_height}
+                </p>
+              )}
+            </div>
+
+            <div className={style.life_span}>
+              <label htmlFor="life_span">Life span:</label>
+              <input
+                type="text"
+                value={dogsForm.life_span}
+                id="life_span"
+                name="life_span"
+                min="1"
+                max="32"
+                onChange={handleForm}
+              />
               <p style={{ color: "red" }} className="error">
-                {errors.name}
+                {errors.life_span}
               </p>
-            )}
-          </div>
+            </div>
 
-          <div className={style.min_weight}>
-            <label htmlFor="min_weight">Min weight:</label>
-            <input
-              type="text"
-              value={dogsForm.min_weight}
-              id="min_weight"
-              name="min_weight"
-              onChange={handleForm}
-            />
-            {errors.min_weight && (
-              <p style={{ color: "red" }} className="error">
-                {errors.min_weight}
-              </p>
-            )}
-          </div>
+            <div>
+              <label htmlFor="image">Add your URL image:</label>
+              <input
+                type="url"
+                value={dogsForm.image}
+                id="image"
+                name="image"
+                onChange={handleForm}
+              />
+              {errors.image && (
+                <p style={{ color: "red" }} className="error">
+                  {errors.image}
+                </p>
+              )}
+            </div>
 
-          <div className={style.max_weight}>
-            <label htmlFor="max_weight">Max weight:</label>
-            <input
-              type="text"
-              value={dogsForm.max_weight}
-              id="max_weight"
-              name="max_weight"
-              onChange={handleForm}
-            />
-            {errors.max_weight && (
-              <p style={{ color: "red" }} className="error">
-                {errors.max_weight}
-              </p>
-            )}
+            <div>
+              <label htmlFor="temperaments">Add temperaments:</label>
+              <select name="temperaments" onChange={handleTemperaments}>
+                <option value="">Select temperaments</option>
+                {tempers?.map((temp, index) => (
+                  <option key={index} value={temp.temperament}>
+                    {temp.temperament}
+                  </option>
+                ))}
+              </select>
+              {errors.temperaments && (
+                <p style={{ color: "red" }} className="error">
+                  {errors.temperaments}
+                </p>
+              )}
+            </div>
           </div>
-
-          <div className={style.min_height}>
-            <label htmlFor="min_height">Min height:</label>
-            <input
-              type="text"
-              value={dogsForm.min_height}
-              id="min_height"
-              name="min_height"
-              onChange={handleForm}
-            />
-            {errors.min_height && (
-              <p style={{ color: "red" }} className="error">
-                {errors.min_height}
-              </p>
-            )}
-          </div>
-
-          <div className={style.max_height}>
-            <label htmlFor="max_height">Max height:</label>
-            <input
-              type="text"
-              value={dogsForm.max_height}
-              id="max_height"
-              name="max_height"
-              onChange={handleForm}
-            />
-            {errors.max_height && (
-              <p style={{ color: "red" }} className="error">
-                {errors.max_height}
-              </p>
-            )}
-          </div>
-
-          <div className={style.life_span}>
-            <label htmlFor="life_span">Life span:</label>
-            <input
-              type="text"
-              value={dogsForm.life_span}
-              id="life_span"
-              name="life_span"
-              min="1"
-              max="32"
-              onChange={handleForm}
-            />
-            <p style={{ color: "red" }} className="error">
-              {errors.life_span}
-            </p>
-          </div>
-
           <div>
-            <label htmlFor="image">Add your URL image:</label>
-            <input
-              type="url"
-              value={dogsForm.image}
-              id="image"
-              name="image"
-              onChange={handleForm}
-            />
-            {errors.image && (
-              <p style={{ color: "red" }} className="error">
-                {errors.image}
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor="temperaments">Add temperaments:</label>
-            <select name="temperaments" onChange={handleTemperaments}>
-              <option value="">Select temperaments</option>
-              {tempers?.map((temp, index) => (
-                <option key={index} value={temp.temperament}>
-                  {temp.temperament}
-                </option>
+              {selectedTemperaments.map((selectedTemp, index) => (
+                <div key={index}>
+                  {selectedTemp}
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveTemperament(selectedTemp)}
+                  >
+                    x
+                  </button>
+                </div>
               ))}
-            </select>
-            {errors.temperaments && (
-              <p style={{ color: "red" }} className="error">
-                {errors.temperaments}
-              </p>
-            )}
-          </div>
-
-          <div>
-            {selectedTemperaments.map((selectedTemp, index) => (
-              <div key={index}>
-                {selectedTemp}
-                <button
-                  type="button"
-                  onClick={() => handleRemoveTemperament(selectedTemp)}
-                >
-                  x
-                </button>
-              </div>
-            ))}
-          </div>
-
+            </div>
           <div className={style.bottom}>
             <input
               type="submit"

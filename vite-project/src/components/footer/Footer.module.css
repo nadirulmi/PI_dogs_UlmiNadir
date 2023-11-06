@@ -1,9 +1,16 @@
-.footer{
-    background-color: bisque;
-    padding: 0.2px;
-    margin: 0 auto ;
+.footer {
+  background: rgb(202, 143, 83);
+  background: linear-gradient(
+    306deg,
+    rgba(202, 143, 83, 1) 0%,
+    rgba(209, 194, 179, 1) 49%,
+    rgba(202, 143, 83, 1) 100%
+  );
+  padding: 0.2px;
+  margin: 0 auto;
+  border-top: 2px solid #ca8f53;
 }
 
-.footer p{
-    text-align: center;
+.footer p {
+  text-align: center;
 }

@@ -9,13 +9,13 @@ select{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(246, 218, 222);
+  /* background-color:beige; */
   width: 350px;
   margin: auto; /* Centra horizontalmente el formulario */
-  border: 2px solid #000; /* Agrega un borde de 2px sólido de color negro */
   padding: 20px; /* Espaciado interior para el contenido del formulario */
   border-radius: 10px; /* Agrega bordes redondeados */
   margin-bottom: 30px;
+  height: 53vh; 
 }
 
 h1 {
@@ -28,6 +28,10 @@ h1 {
     margin: 10px;
     padding: 7px;
     background-color: rgb(239, 234, 229);
+}
+
+.form{
+  display: flex;
 }
 
 

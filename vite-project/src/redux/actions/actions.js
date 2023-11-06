@@ -8,6 +8,7 @@ import {
   ORDER_SOURCE,
   FILTER_TEMPERAMENTS,
   ORDER_WEIGHT,
+  DELETE_DOG
 } from "../actionsTypes/actionsTypes";
 import axios from "axios";
 
@@ -29,8 +30,6 @@ export const createDog = (combinedData) => {
     try {
       const response = await axios.post(endpoint, combinedData);
       if (response.status === 200) {
-        // Puedes despachar una acción de éxito aquí si es necesario
-        // dispatch(createDogSuccess(response.data));
         return response.data;
       }
     } catch (error) {
@@ -95,6 +94,20 @@ export const getDogDetail = (id) => {
     }
   };
 };
+
+export const deleteDog = (id) =>{
+  return async (dispatch) =>{
+    try {
+      await axios.delete(`http://localhost:3001/dogs/${id}`);
+      return dispatch({
+        type: DELETE_DOG,
+        payload: id
+      })
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+}
 
 export const cleanDogs = () => {
   return { type: CLEAN_DOGS };

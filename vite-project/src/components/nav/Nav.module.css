@@ -1,21 +1,31 @@
-.navBar{
-    background-color: bisque;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.navBar {
+  background: rgb(202, 143, 83);
+  background: linear-gradient(
+    306deg,
+    rgba(202, 143, 83, 1) 0%,
+    rgba(209, 194, 179, 1) 49%,
+    rgba(202, 143, 83, 1) 100%
+  );
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid #ca8f53;
 }
 
-.navBar Button{
-    background-color: white;
-    border: none;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
+.navBar Button {
+  background-color: rgb(247, 237, 225);
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.navBar img{
-    width: 60px;
-    height: 65px;
+.navBar Button:hover {
+  background: linear-gradient(to bottom, #8a7252, #83582c);
+  color: white; /* Cambiamos el color del texto a blanco */
 }
 
-
+.navBar img {
+  width: 60px;
+  height: 65px;
+}

@@ -1,10 +1,11 @@
 import { Button } from "../button/Button";
 import style from "./Home.module.css";
-import dogs from "./img/dogs.jpg";
+import dog from "./img/dog.gif"
 
 export default function Home() {
   return (
-    <div className={style.container}>
+    <div>
+      <div className={style.container}>
       <div>
         <h2>
           Welcome to wiki Dog, a page where you can learn about the different
@@ -14,8 +15,9 @@ export default function Home() {
         <Button path="/dogs" text="Log in" />
       </div>
       <div>
-        <img src={dogs} alt="dogs"></img>
+        <img src={dog} alt="dog turning around"></img>
       </div>
+    </div>
     </div>
   );
 }
