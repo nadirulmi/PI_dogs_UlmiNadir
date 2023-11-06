@@ -7,7 +7,7 @@ const getDogs = async (req, res) => {
   try {
     const { name } = req.query;
 
-    // Realizar una solicitud a la API para obtener todas las razas
+  
     const response = await axios.get(`${URL}?api_key=${API_KEY}`);
 
     if (response.status === 200) {
@@ -24,7 +24,7 @@ const getDogs = async (req, res) => {
 
       let allDogs = [...apiDogs];
 
-      // Filtrar los perros de la API por el nombre proporcionado
+      // Filtrar los perros de la API por el nombre 
       if (name) {
         allDogs = allDogs.filter((dog) =>
           dog.name.toLowerCase().includes(name.toLowerCase())
@@ -44,6 +44,11 @@ const getDogs = async (req, res) => {
         allDogs = [...filteredDatabaseDogs, ...allDogs];
       } else {
         allDogs = [...databaseDogs, ...allDogs];
+      }
+
+      if (allDogs.length == 0) {
+        // No se encontraron perros con el nombre proporcionado
+        return res.status(404).json({ message: "There is no dog by that name" });
       }
 
       // Modificar el temperamento de los perros de la base de datos

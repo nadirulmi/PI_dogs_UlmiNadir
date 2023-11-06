@@ -1,0 +1,25 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    height: 91vh; 
+  }
+  
+  .container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .container img {
+    max-width: 100%; /* Ajusta la imagen para que quepa en el div */
+    height: auto;
+  }
+
+  
+  
+
+
+

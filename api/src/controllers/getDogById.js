@@ -49,12 +49,8 @@ const getDogById = async (req, res) => {
 
       return res.status(200).json(dog);
     }
-
-    return res
-      .status(404)
-      .json({ error: "No se encontró ningún perro con ese ID" });
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({ message: "No se encontró ningún perro con ese ID"});
   }
 };
 

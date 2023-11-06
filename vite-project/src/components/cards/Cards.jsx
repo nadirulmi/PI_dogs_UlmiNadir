@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../card/Card";
 import Pagination from "../pagination/Pagination";
 import SearchBar from "../searchBar/SearchBar";
+import { Nav } from "../nav/Nav";
+import style from "./Cards.module.css"
 import {
   getDogs,
   orderDogs,
@@ -12,7 +14,7 @@ import {
   temperamentFilter,
   orderWeight,
 } from "../../redux/actions/actions";
-import Select from "./Select";
+import Select from "../select/Select";
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -58,7 +60,7 @@ export default function Cards() {
   };
 
   const onSearch = (newName) => {
-    try {
+    
       if (newName.trim() === "") {
         // Si el valor de busqueda esta vacio restablezco el número de páginas
         dispatch(getDogs());
@@ -67,13 +69,12 @@ export default function Cards() {
         dispatch(searchDogs(newName));
         setCurrentPage(1);
       }
-    } catch (error) {
-      throw Error(error.message);
-    }
+    
   };
 
   return (
     <div>
+      <div>
       <SearchBar onSearch={onSearch} />
       <Select
         handleOrder={handleOrder}
@@ -88,17 +89,27 @@ export default function Cards() {
         prevPage={prevPage}
         nextPage={nextPage}
       />
-      <h1>Soy cards</h1>
+      </div>
+      <div className={style.cardsContainer}>
       {currentDogs.map(({ id, name, image, temperament, weight }) => (
-        <Card
-          key={id}
-          id={id}
-          image={image}
-          name={name}
-          temperament={temperament}
-          weight={weight}
-        />
+        <div  key={id}>
+          <Card
+            id={id}
+            image={image}
+            name={name}
+            temperament={temperament}
+            weight={weight}
+          />
+        </div>
       ))}
+    </div>
+      
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        prevPage={prevPage}
+        nextPage={nextPage}
+      />
     </div>
   );
 }

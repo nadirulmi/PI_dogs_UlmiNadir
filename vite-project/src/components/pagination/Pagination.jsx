@@ -1,9 +1,8 @@
-// Pagination.js
-import React from "react";
+import style from "./Pagination.module.css"
 
 const Pagination = ({ currentPage, totalPages, prevPage, nextPage }) => {
   return (
-    <div className="pagination">
+    <div className={style.pagination}>
       {currentPage > 1 && (
         <button onClick={prevPage}>
           &#8249;

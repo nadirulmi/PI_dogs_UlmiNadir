@@ -1,0 +1,21 @@
+.navBar{
+    background-color: bisque;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navBar Button{
+    background-color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.navBar img{
+    width: 60px;
+    height: 65px;
+}
+
+

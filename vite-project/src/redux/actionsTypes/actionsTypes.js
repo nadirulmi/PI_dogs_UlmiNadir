@@ -8,3 +8,5 @@ export const CREATE_DOG = "CREATE_DOG";
 export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS";
 export const FILTER_TEMPERAMENTS = "FILTER_TEMPERAMENTS";
 export const ORDER_WEIGHT = "ORDER_WEIGHT";
+export const ORDER_LIFE = "ORDER_LIFE";
+export const DELETE_DOG = "DELETE_DOG"

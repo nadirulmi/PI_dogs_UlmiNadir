@@ -7,7 +7,7 @@ import {
   GET_TEMPERAMENTS,
   ORDER_SOURCE,
   FILTER_TEMPERAMENTS,
-  ORDER_WEIGHT
+  ORDER_WEIGHT,
 } from "../actionsTypes/actionsTypes";
 import axios from "axios";
 
@@ -36,7 +36,7 @@ export const createDog = (combinedData) => {
     } catch (error) {
       // Puedes despachar una acción de error aquí si es necesario
       // dispatch(createDogError(error.message));
-      throw Error(error.message);
+      throw new Error(error.message);
     }
   };
 };
@@ -48,7 +48,7 @@ export const getTemperaments = ()=>async(dispatch)=>{
       
       dispatch({type: GET_TEMPERAMENTS, payload: data})
   } catch (error) {
-      throw Error(error)
+    throw new Error(error.message);
   }
 };
 
@@ -73,14 +73,12 @@ export const searchDogs = (newName) => {
             type: SEARCH_DOGS,
             payload: data,
           });
-        } else {
-          console.error(`Error al buscar perros: ${response.status}`);
-          // Puedes manejar el error de otras maneras aquí si es necesario
-        }
+        } 
       }
     } catch (error) {
-      console.error(error);
-      // Puedes manejar el error de otras maneras aquí si es necesario
+      alert(error.response.data.message)
+      throw new Error(error.message);
+      
     }
   };
 };
@@ -92,6 +90,7 @@ export const getDogDetail = (id) => {
       const data = response.data;
       dispatch({ type: DOG_DETAIL, payload: data });
     } catch (error) {
+      alert(error.response.data.message)
       throw new Error(error.message);
     }
   };
@@ -119,3 +118,4 @@ export const temperamentFilter = (temperaments) => {
 export const orderWeight = (order) => {
   return { type: ORDER_WEIGHT, payload: order };
 };
+

@@ -1,0 +1,13 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.pagination button{
+    background-color: bisque;
+    border-radius: 10px;
+    border-style: none;
+    cursor: pointer;
+}
+

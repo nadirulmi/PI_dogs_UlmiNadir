@@ -8,7 +8,7 @@ const deleteDog = async (req, res) => {
     const dog = await Dog.findByPk(id);
 
     if (!dog) {
-      return res.status(404).json({ message: "Perro no encontrado" });
+      return res.status(404).json({ message: "Dog not found" });
     }
 
     // Elimina el perro

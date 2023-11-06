@@ -1,0 +1,22 @@
+.detailContainer h1{
+    text-align: center;
+}
+
+.detailContainer{
+    display: flex;
+    justify-content: center;
+    justify-content:space-around;
+}
+
+.detailCenter{
+    display: flex;
+    flex-direction: column;
+}
+
+.detailContainer img{
+    border-radius: 10px;
+}
+
+
+
+

@@ -7,7 +7,7 @@ import {
   GET_TEMPERAMENTS,
   ORDER_SOURCE,
   FILTER_TEMPERAMENTS,
-  ORDER_WEIGHT
+  ORDER_WEIGHT,
 } from "../actionsTypes/actionsTypes";
 
 const initialState = {
@@ -123,8 +123,6 @@ const reducer = (state = initialState, action) => {
       };
     }
     
-    
-
     default:
       return { ...state };
   }
