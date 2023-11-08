@@ -29,11 +29,7 @@ export const Form = () => {
     if (
       dogsForm.name !== "" ||
       dogsForm.max_weight !== "" ||
-      dogsForm.min_height !== "" ||
-      dogsForm.max_height !== "" ||
-      dogsForm.life_span !== "" ||
-      dogsForm.image !== "" ||
-      dogsForm.temperaments !== ""
+      dogsForm.min_height !== "" 
     ) {
       const userValidated = validation(dogsForm, selectedTemperaments);
       setErrors(userValidated);
@@ -100,7 +96,7 @@ export const Form = () => {
                 onChange={handleForm}
               />
               {errors.name && (
-                <p style={{ color: "red" }} className="error">
+                <p style={{ color: "rgb(171, 4, 4)" }} className="error">
                   {errors.name}
                 </p>
               )}
@@ -116,7 +112,7 @@ export const Form = () => {
                 onChange={handleForm}
               />
               {errors.min_weight && (
-                <p style={{ color: "red" }} className="error">
+                <p style={{ color: "rgb(171, 4, 4)" }} className="error">
                   {errors.min_weight}
                 </p>
               )}
@@ -132,7 +128,7 @@ export const Form = () => {
                 onChange={handleForm}
               />
               {errors.max_weight && (
-                <p style={{ color: "red" }} className="error">
+                <p style={{ color: "rgb(171, 4, 4)" }} className="error">
                   {errors.max_weight}
                 </p>
               )}
@@ -148,7 +144,7 @@ export const Form = () => {
                 onChange={handleForm}
               />
               {errors.min_height && (
-                <p style={{ color: "red" }} className="error">
+                <p style={{ color: "rgb(171, 4, 4)" }} className="error">
                   {errors.min_height}
                 </p>
               )}
@@ -166,7 +162,7 @@ export const Form = () => {
                 onChange={handleForm}
               />
               {errors.max_height && (
-                <p style={{ color: "red" }} className="error">
+                <p style={{ color: "rgb(171, 4, 4)" }} className="error">
                   {errors.max_height}
                 </p>
               )}
@@ -183,7 +179,7 @@ export const Form = () => {
                 max="32"
                 onChange={handleForm}
               />
-              <p style={{ color: "red" }} className="error">
+              <p style={{ color: "rgb(171, 4, 4)" }} className="error">
                 {errors.life_span}
               </p>
             </div>
@@ -198,7 +194,7 @@ export const Form = () => {
                 onChange={handleForm}
               />
               {errors.image && (
-                <p style={{ color: "red" }} className="error">
+                <p style={{ color: "rgb(171, 4, 4)" }} className="error">
                   {errors.image}
                 </p>
               )}
@@ -215,7 +211,7 @@ export const Form = () => {
                 ))}
               </select>
               {errors.temperaments && (
-                <p style={{ color: "red" }} className="error">
+                <p style={{ color: "rgb(171, 4, 4)" }} className="error">
                   {errors.temperaments}
                 </p>
               )}

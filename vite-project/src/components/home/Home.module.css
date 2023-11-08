@@ -1,7 +1,8 @@
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    height: 90.8vh; 
+    height: 91.3vh; 
+    background-image: url("https://i.etsystatic.com/7315499/r/il/b58d2d/4329725207/il_fullxfull.4329725207_iwnj.jpg");
   }
   
   .container div {
@@ -11,6 +12,10 @@
     justify-content: center;
     text-align: center;
     padding: 20px;
+  }
+
+  .tittle{
+    background-color:#DDB892;
   }
   
   .container img {

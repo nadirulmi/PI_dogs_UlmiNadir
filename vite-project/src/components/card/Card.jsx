@@ -17,14 +17,12 @@ export default function Card({ id, name, weight, temperament, image }) {
 
   return (
     <div className={style.cardContainer}>
-     <div className={style.button}>
-     {
+      <div className={style.singleCard}>
+      {
         isNaN(id) ? 
           <button onClick={handlerDelete}>X</button>
         : ""
       }
-     </div>
-      <div className={style.singleCard}>
         <Link style={{textDecoration: "none", color: "black"}} to={`/detail/${id}`}>
           <h2>{name}</h2>
         
@@ -32,6 +30,8 @@ export default function Card({ id, name, weight, temperament, image }) {
         <p>Temperament: {temperament}</p>
         <img src={image} alt={name}  />
         </Link>
+        <div>
+        </div>
       </div>
     </div>
   );

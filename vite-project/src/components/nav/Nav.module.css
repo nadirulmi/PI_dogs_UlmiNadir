@@ -3,13 +3,12 @@
   background: linear-gradient(
     306deg,
     rgba(202, 143, 83, 1) 0%,
-    rgba(209, 194, 179, 1) 49%,
+    rgb(142, 119, 97) 49%,
     rgba(202, 143, 83, 1) 100%
   );
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 2px solid #ca8f53;
 }
 
 .navBar Button {

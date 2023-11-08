@@ -1,12 +1,10 @@
-
-
 body {
   margin: 0;
   padding: 0;
   place-items: center;
   height: 100vh;
   box-sizing: border-box;
-  /* background-image: url("./components/img/dogs.jpg"); */
+  background-color: #fbecde;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

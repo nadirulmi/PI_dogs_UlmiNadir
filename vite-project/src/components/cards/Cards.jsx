@@ -28,6 +28,10 @@ export default function Cards() {
     dispatch(getTemperaments());
   }, [dispatch]);
 
+  useEffect(() =>{
+    setCurrentPage(1)
+  },[dogs])
+
   const totalPages = Math.ceil(dogs.length / dogsPerPage);
 
   const indexOfLastDog = currentPage * dogsPerPage;

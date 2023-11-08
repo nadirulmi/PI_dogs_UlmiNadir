@@ -15,7 +15,7 @@ select{
   padding: 20px; /* Espaciado interior para el contenido del formulario */
   border-radius: 10px; /* Agrega bordes redondeados */
   margin-bottom: 30px;
-  height: 53vh; 
+  height: 53.8vh; 
 }
 
 h1 {
@@ -24,7 +24,7 @@ h1 {
 
 .container input{
     border-radius: 10px;
-    border-color: antiquewhite;
+    border-color: rgb(236, 196, 144);
     margin: 10px;
     padding: 7px;
     background-color: rgb(239, 234, 229);
@@ -39,6 +39,10 @@ h1 {
 .bottom{
     display: flex;
     justify-content: center;
+}
+
+.bottom input{
+  cursor: pointer;
 }
 
 

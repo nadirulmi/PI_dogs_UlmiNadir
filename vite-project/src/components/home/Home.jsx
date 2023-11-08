@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <div className={style.container}>
-      <div>
+      <div className={style.tittle}>
         <h2>
           Welcome to wiki Dog, a page where you can learn about the different
           dog breeds that will captivate your heart, you can also experiment and

@@ -8,11 +8,15 @@
 .reverse{
     display: flex;
     flex-direction: row-reverse;
+    margin: 20px;
+    background-color: #EBD6C1;
 }
 
 img{
     height: 250px;
     width: 320px;
+    border-radius: 20px;
+    margin: 10px;
 }
 
 .container h2, p{

@@ -8,49 +8,48 @@ const validation = (dogsForm, selectedTemperaments) => {
     errors.name = "The name can only contain letters";
   }
 
-  if (dogsForm.min_weight < 1 || dogsForm.min_weight > 60) {
+  if (dogsForm.min_weight < 0 || dogsForm.min_weight > 60 || !/^\d+$/.test(dogsForm.min_weight)) {
     errors.min_weight =
       "The minimum weight of the breed of dog must be between 0 to 60";
-  } else if (!/^\d+$/.test(dogsForm.min_weight)) {
-    errors.min_weight = "The minimum weight can only contain numbers";
   }
 
-  if (dogsForm.max_weight < 1 || dogsForm.max_weight > 100) {
+  if (dogsForm.max_weight < 1 || dogsForm.max_weight > 100 || !/^\d+$/.test(dogsForm.max_weight)) {
     errors.max_weight =
-      "The maximus weight of the breed of dog must be between 1 to 100";
-  } else if (!/^\d+$/.test(dogsForm.max_weight)) {
-    errors.max_weight = "The maximus weight can only contain numbers";
+      "The maximum weight of the breed of dog must be between 1 to 100";
   }
 
-  if (dogsForm.min_height < 15 || dogsForm.min_height > 70) {
+  if (dogsForm.min_height < 15 || dogsForm.min_height > 70 || !/^\d+$/.test(dogsForm.min_height)) {
     errors.min_height =
       "The minimum height of the breed of dog must be between 15 to 70";
-  } else if (!/^\d+$/.test(dogsForm.min_height)) {
-    errors.min_height = "The minimum height can only contain numbers";
   }
 
-  if (dogsForm.max_height < 20 || dogsForm.max_height > 110) {
+  if (dogsForm.max_height < 20 || dogsForm.max_height > 110 || !/^\d+$/.test(dogsForm.max_height)) {
     errors.max_height =
-      "The maximus height of the breed of dog must be between 15 to 110";
-  } else if (!/^\d+$/.test(dogsForm.max_height)) {
-    errors.max_height = "The maximus height can only contain numbers";
+      "The maximum height of the breed of dog must be between 20 to 110";
   }
 
-  if(dogsForm.life_span < 1 || dogsForm.life_span > 32){
-    errors.life_span = "Life span should be between 1 and 32 years"
-  }else if (!/^\d+$/.test(dogsForm.life_span)) {
-    errors.life_span = "Life span can only contain numbers";
+  if (dogsForm.min_weight > dogsForm.max_weight) {
+    errors.min_weight = "Minimum weight should be less than maximum weight";
   }
 
-  if (
-    !/^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/.test(
-      dogsForm.image
-    )
-  ) {
+  if (dogsForm.min_height > dogsForm.max_height) {
+    errors.min_height = "Minimum height should be less than maximum height";
+  }
+
+  
+
+  if (dogsForm.life_span < 1 || dogsForm.life_span > 32 || !/^\d+$/.test(dogsForm.life_span)) {
+    errors.life_span = "Life span should be between 1 and 32 years";
+  }
+
+  if (!/^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/.test(
+    dogsForm.image
+  )) {
     errors.image = "Only URL image";
   }
-  if (selectedTemperaments.length === 0) {
-    errors.temperaments = " You must select between 1 to 5 temperaments";
+
+  if (selectedTemperaments.length === 0 || selectedTemperaments.length > 5) {
+    errors.temperaments = "You must select between 1 to 5 temperaments";
   }
 
   return errors;
