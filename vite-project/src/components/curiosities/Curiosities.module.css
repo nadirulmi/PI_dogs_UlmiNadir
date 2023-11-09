@@ -8,8 +8,11 @@
 .reverse{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
     margin: 20px;
     background-color: #EBD6C1;
+    border-radius: 20px;
 }
 
 img{
@@ -19,6 +22,3 @@ img{
     margin: 10px;
 }
 
-.container h2, p{
-    text-align: center;
-}

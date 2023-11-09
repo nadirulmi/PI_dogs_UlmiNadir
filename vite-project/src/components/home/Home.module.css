@@ -23,19 +23,7 @@
     height: 80%;
   }
 
-  .container Button {
-    background-color: rgb(247, 237, 225);
-    border-color: #ca8f53;;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .container Button:hover {
-    background: linear-gradient(to bottom, #8a7252, #83582c);
-    color: white; /* Cambiamos el color del texto a blanco */
-  }
+
 
   
   

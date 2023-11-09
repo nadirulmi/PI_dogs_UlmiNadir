@@ -30,7 +30,9 @@ const Detail = () => {
           <img src={dogsDetail.image} alt={dogsDetail.name} width={300}></img>
         </div>
       </div>
+      <div className={style.bottom}>
       <Button path="/dogs" text="Back" />
+      </div>
     </div>
   );
 };

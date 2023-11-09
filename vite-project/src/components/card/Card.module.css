@@ -12,19 +12,19 @@
   max-width: 210px;
   border-radius: 20px;
   background-color: rgb(242, 196, 141);
-  /* background: linear-gradient(to bottom,  rgba(179, 159, 110, 0.6), rgba(58, 51, 32, 0.6)); */
   display: flex;
-  flex-direction: column; /* Ajusta el contenido en una columna */
-  align-items: center; /* Centra el contenido horizontalmente */
-  text-align: center; /* Centra el texto */
-  height: 330px; /* Altura fija para todas las tarjetas */
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  height: 330px; 
+  box-shadow: 4px 4px #ae9882;
 }
 
 .singleCard img {
   width: 210px;
   height: 170px;
   border-radius: 20px;
-  margin: 15px; /* Margen solo en la parte superior e inferior de la imagen */
+  margin: 15px; 
 }
 
 .singleCard h2 {
@@ -44,7 +44,7 @@
 
 .singleCard button:hover {
   background: rgb(97, 5, 5);
-  color: white; /* Cambiamos el color del texto a blanco */
+  color: white; 
 }
 
 .top {

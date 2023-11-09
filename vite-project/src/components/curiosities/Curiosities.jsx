@@ -1,6 +1,7 @@
 import dog from "./img/dog.jpg";
 import blackdog from "./img/blackdog.webp";
 import dogsupport from "./img/dogsupport.jpg";
+import dogui from "./img/dogui.jpg"
 import style from "./Curiosities.module.css";
 
 export const Curiosities = () => {
@@ -61,7 +62,7 @@ export const Curiosities = () => {
           </p>
         </div>
         <div>
-          <img src={blackdog} alt="sniffing dog" width="300"></img>
+          <img src={dogui} alt="dog with pretal" width="300"></img>
         </div>
       </div>
     </div>

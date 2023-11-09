@@ -15,7 +15,7 @@ export const Nav = () =>{
                 <Button path="/dogs" text="Home"/>
                 <Button path="/create" text="Create your dog"/>
                 <Button path="/curiosities" text="Curiosities"/>
-                <Button path="/" text="Back to homepage"/>
+                <Button path="/" text="Back to landing page"/>
             </nav>
         </div>
     )

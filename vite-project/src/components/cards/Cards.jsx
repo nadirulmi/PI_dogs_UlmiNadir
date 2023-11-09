@@ -26,7 +26,7 @@ export default function Cards() {
   useEffect(() => {
     dispatch(getDogs());
     dispatch(getTemperaments());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() =>{
     setCurrentPage(1)

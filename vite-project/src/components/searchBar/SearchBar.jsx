@@ -7,17 +7,23 @@ function SearchBar({ onSearch }) {
   const handleChange = (event) => {
     const newName = event.target.value;
     setName(newName);
-    onSearch(newName);
+  }
+
+  const handleSubmit = (event) =>{
+    event.preventDefault()
+    onSearch(name);
   }
 
   return (
     <div className={style.search}>
+      <form onSubmit={handleSubmit}>
       <input
         type="search"
         placeholder=" Find your dog by name..."
         value={name}
         onChange={handleChange}
       />
+      </form>
     </div>
   );
 }

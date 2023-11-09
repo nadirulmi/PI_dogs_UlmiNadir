@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     justify-content:space-around;
-    height: 60vh; 
+    height: 54.4vh; 
 }
 
 .detailCenter{
@@ -15,8 +15,16 @@
 }
 
 .detailContainer img{
-    border-radius: 10px;
+    border-radius: 20px;
 }
+
+.bottom{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+
 
 
 
