@@ -6,7 +6,6 @@
     display: flex;
     justify-content: center;
     justify-content:space-around;
-    height: 54.4vh; 
 }
 
 .detailCenter{
@@ -22,6 +21,35 @@
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
+}
+
+@media(min-width:600px){
+    .detailContainer{
+     height: 55.5vh;  
+    }
+}
+
+@media(max-width:600px){
+    .detailContainer{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .detailContainer img{
+        display: flex;
+        justify-content: center;
+        border-radius: 0;
+        width: 51vh;
+        margin: auto;
+
+    }
+
+    .bottom{
+       
+        margin: 10px;
+    }
+
 }
 
 

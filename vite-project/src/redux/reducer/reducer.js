@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         Alldogs: action.payload,
-        FilteredDogs: action.payload, //copia
+        FilteredDogs: action.payload, //copy
       };
 
     case GET_TEMPERAMENTS:

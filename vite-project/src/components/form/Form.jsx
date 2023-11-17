@@ -71,7 +71,7 @@ export const Form = () => {
       image: dogsForm.image,
     };
     dispatch(createDog(combinedData));
-    alert("Datos cargados");
+    alert("Dog created successfully");
     navigate("/dogs");
   };
 

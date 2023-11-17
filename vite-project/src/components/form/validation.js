@@ -8,14 +8,14 @@ const validation = (dogsForm, selectedTemperaments) => {
     errors.name = "The name can only contain letters";
   }
 
-  if (dogsForm.min_weight < 0 || dogsForm.min_weight > 60 || !/^\d+$/.test(dogsForm.min_weight)) {
+  if (!/^[1-9]\d?$/.test(dogsForm.min_weight) || dogsForm.min_weight > 60) {
     errors.min_weight =
-      "The minimum weight of the breed of dog must be between 0 to 60";
+      "The minimum weight of the breed of dog must be between 1 to 60";
   }
-
-  if (dogsForm.max_weight < 1 || dogsForm.max_weight > 100 || !/^\d+$/.test(dogsForm.max_weight)) {
+  
+  if (!/^\d{1,2}$/.test(dogsForm.max_weight) || dogsForm.max_weight < 1 || dogsForm.max_weight > 100) {
     errors.max_weight =
-      "The maximum weight of the breed of dog must be between 1 to 100";
+    "The maximum weight of the breed of dog must be between 2 to 100";
   }
 
   if (dogsForm.min_height < 15 || dogsForm.min_height > 70 || !/^\d+$/.test(dogsForm.min_height)) {
@@ -28,11 +28,11 @@ const validation = (dogsForm, selectedTemperaments) => {
       "The maximum height of the breed of dog must be between 20 to 110";
   }
 
-  if (dogsForm.min_weight > dogsForm.max_weight) {
+  if (parseInt(dogsForm.min_weight) >= parseInt(dogsForm.max_weight)) {
     errors.min_weight = "Minimum weight should be less than maximum weight";
   }
 
-  if (dogsForm.min_height > dogsForm.max_height) {
+  if (dogsForm.min_height >= dogsForm.max_height) {
     errors.min_height = "Minimum height should be less than maximum height";
   }
 

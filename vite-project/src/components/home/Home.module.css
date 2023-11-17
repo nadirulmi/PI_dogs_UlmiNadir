@@ -1,7 +1,7 @@
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    height: 91.3vh; 
+    height: 91.5vh; 
     background-image: url("https://i.etsystatic.com/7315499/r/il/b58d2d/4329725207/il_fullxfull.4329725207_iwnj.jpg");
   }
   
@@ -22,6 +22,13 @@
     max-width: 100%; /* Ajusta la imagen para que quepa en el div */
     height: 80%;
   }
+
+  @media (max-width: 700px) {
+    .container{
+      display: flex;
+      flex-direction: column;
+    }
+}
 
 
 

@@ -22,3 +22,32 @@ img{
     margin: 10px;
 }
 
+
+@media (max-width: 600px) {
+    
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .reverse{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        border-radius: 0;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    img{
+        height: 220px;
+        width: 250px;
+    }
+
+    h1{
+        font-size: 1.7rem;
+    }
+}

@@ -5,10 +5,9 @@ const createDogs = async (req, res) => {
     const { name, image, height, weight, temperaments, life_span } = req.body;
 
     if (!name || !image || !height || !weight || !temperaments || !life_span) {
-      throw new Error("Faltan datos");
+      throw new Error("Missing data");
     }
 
-    // Busca los temperamentos en la base de datos y obtén sus IDs
     const temperamentIds = [];
     for (const temperamentName of temperaments) {
       const foundTemperament = await Temperament.findOne({
@@ -21,7 +20,7 @@ const createDogs = async (req, res) => {
       if (foundTemperament) {
         temperamentIds.push(foundTemperament.id);
       } else {
-        throw new Error(`El temperamento "${temperamentName}" no existe`);
+        throw new Error(`Temperament "${temperamentName}" does not exist`);
       }
     }
 
@@ -34,7 +33,7 @@ const createDogs = async (req, res) => {
       temperaments,
     });
 
-    // Asocia el perro con los temperamentos
+    // Associates the dog with temperaments
     await newDog.setTemperaments(temperamentIds);
 
     res.status(201).json(newDog);

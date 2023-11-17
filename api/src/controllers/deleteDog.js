@@ -1,6 +1,5 @@
 const { Dog } = require("../db");
 
-// Controlador para eliminar un perro por su ID
 const deleteDog = async (req, res) => {
   const { id } = req.params;
 
@@ -11,14 +10,11 @@ const deleteDog = async (req, res) => {
       return res.status(404).json({ message: "Dog not found" });
     }
 
-    // Elimina el perro
     await dog.destroy();
 
-    res
-      .status(200)
-      .json({
-        message: `El perro con el id ${id} se ha eliminado exitosamente `,
-      });
+    res.status(200).json({
+      message: `The dog with id ${id} has been successfully removed `,
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

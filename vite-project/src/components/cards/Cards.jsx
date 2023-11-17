@@ -4,7 +4,7 @@ import Card from "../card/Card";
 import Pagination from "../pagination/Pagination";
 import SearchBar from "../searchBar/SearchBar";
 import { Nav } from "../nav/Nav";
-import style from "./Cards.module.css"
+import style from "./Cards.module.css";
 import {
   getDogs,
   orderDogs,
@@ -28,9 +28,9 @@ export default function Cards() {
     dispatch(getTemperaments());
   }, []);
 
-  useEffect(() =>{
-    setCurrentPage(1)
-  },[dogs])
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [dogs]);
 
   const totalPages = Math.ceil(dogs.length / dogsPerPage);
 
@@ -64,50 +64,48 @@ export default function Cards() {
   };
 
   const onSearch = (newName) => {
-    
-      if (newName.trim() === "") {
-        // Si el valor de busqueda esta vacio restablezco el número de páginas
-        dispatch(getDogs());
-        setCurrentPage(1);
-      } else {
-        dispatch(searchDogs(newName));
-        setCurrentPage(1);
-      }
-    
+    if (newName.trim() === "") {
+      // Si el valor de busqueda esta vacio restablezco el número de páginas
+      dispatch(getDogs());
+      setCurrentPage(1);
+    } else {
+      dispatch(searchDogs(newName));
+      setCurrentPage(1);
+    }
   };
 
   return (
     <div>
       <div>
-      <SearchBar onSearch={onSearch} />
-      <Select
-        handleOrder={handleOrder}
-        handleSource={handleSource}
-        handleWeightOrder={handleWeightOrder}
-        handleTemperaments={handleTemperaments}
-        tempers={tempers}
-      />
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        prevPage={prevPage}
-        nextPage={nextPage}
-      />
+        <SearchBar onSearch={onSearch} />
+        <Select
+          handleOrder={handleOrder}
+          handleSource={handleSource}
+          handleWeightOrder={handleWeightOrder}
+          handleTemperaments={handleTemperaments}
+          tempers={tempers}
+        />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          prevPage={prevPage}
+          nextPage={nextPage}
+        />
       </div>
       <div className={style.cardsContainer}>
-      {currentDogs.map(({ id, name, image, temperament, weight }) => (
-        <div  key={id}>
-          <Card
-            id={id}
-            image={image}
-            name={name}
-            temperament={temperament}
-            weight={weight}
-          />
-        </div>
-      ))}
-    </div>
-      
+        {currentDogs.map(({ id, name, image, temperament, weight }) => (
+          <div key={id}>
+            <Card
+              id={id}
+              image={image}
+              name={name}
+              temperament={temperament}
+              weight={weight}
+            />
+          </div>
+        ))}
+      </div>
+
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

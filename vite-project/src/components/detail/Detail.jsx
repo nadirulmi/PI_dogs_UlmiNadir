@@ -4,16 +4,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDogDetail, cleanDogs } from "../../redux/actions/actions";
 import style from "./Detail.module.css";
 import { Button } from "../button/Button";
+import { useState } from "react";
 
 const Detail = () => {
+
+  const[detail, setDetail] = useState(false)
+
+  const changeDetail = () =>{
+    setDetail(false)
+  }
+
   const { id } = useParams();
   const dispatch = useDispatch();
 
   const dogsDetail = useSelector((state) => state.dogsDetail);
   useEffect(() => {
     dispatch(getDogDetail(id));
-    return () => dispatch(cleanDogs());
+    setDetail(true)
+    return () => 
+    dispatch(cleanDogs())
   }, [id]);
+
  
   return (
     <div>

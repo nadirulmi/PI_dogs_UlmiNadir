@@ -7,7 +7,6 @@ const getDogs = async (req, res) => {
   try {
     const { name } = req.query;
 
-  
     const response = await axios.get(`${URL}?api_key=${API_KEY}`);
 
     if (response.status === 200) {
@@ -24,20 +23,20 @@ const getDogs = async (req, res) => {
 
       let allDogs = [...apiDogs];
 
-      // Filtrar los perros de la API por el nombre 
+      // Filter by name
       if (name) {
         allDogs = allDogs.filter((dog) =>
           dog.name.toLowerCase().includes(name.toLowerCase())
         );
       }
 
-      // Buscar perros en la base de datos
+      // Filter dogs in database
       const databaseDogs = await Dog.findAll({
         include: Temperament,
       });
 
       if (name) {
-        // Filtrar los perros de la base de datos por el nombre proporcionado
+        // Filter dogs by name in database
         const filteredDatabaseDogs = databaseDogs.filter((dog) =>
           dog.name.toLowerCase().includes(name.toLowerCase())
         );
@@ -47,23 +46,23 @@ const getDogs = async (req, res) => {
       }
 
       if (allDogs.length == 0) {
-        // No se encontraron perros con el nombre proporcionado
-        return res.status(404).json({ message: "There is no dog by that name" });
+        return res
+          .status(404)
+          .json({ message: "There is no dog by that name" });
       }
 
-      // Modificar el temperamento de los perros de la base de datos
+      // Modifying the temperament of the dogs in the database
       allDogs = allDogs.map((dog) => {
         if (dog.created) {
-          // Perro creado: transformar los temperamentos
           const temperamentNames = dog.Temperaments.map(
             (temp) => temp.temperament
           ).join(", ");
           return {
-            ...dog.dataValues, // Copiar todos los datos existentes
-            temperament: temperamentNames, // Agregar temperamento transformado
+            ...dog.dataValues,
+            temperament: temperamentNames,
           };
         }
-        return dog; // Perro de la API, no realizar cambios
+        return dog;
       });
 
       return res.status(200).json(allDogs);

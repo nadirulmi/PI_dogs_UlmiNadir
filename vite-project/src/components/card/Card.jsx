@@ -8,7 +8,7 @@ export default function Card({ id, name, weight, temperament, image }) {
   const dispatch = useDispatch()
 
   const handlerDelete = () =>{
-    const result = window.confirm("estas seguro?")
+    const result = window.confirm("Are you sure?")
     if(result){
       dispatch(deleteDog(id))
       window.location.reload()

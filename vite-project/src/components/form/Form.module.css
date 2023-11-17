@@ -15,7 +15,6 @@ select{
   padding: 20px; /* Espaciado interior para el contenido del formulario */
   border-radius: 10px; /* Agrega bordes redondeados */
   margin-bottom: 30px;
-  height: 53.8vh; 
 }
 
 h1 {
@@ -35,7 +34,6 @@ h1 {
 }
 
 
-
 .bottom{
     display: flex;
     justify-content: center;
@@ -46,5 +44,32 @@ h1 {
 }
 
 
+@media (min-width:870px){
+  .container{
+    height: 51.1vh; 
+  }
+}
 
+@media (max-width: 870px) {
+  .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 

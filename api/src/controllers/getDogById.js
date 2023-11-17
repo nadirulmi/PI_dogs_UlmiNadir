@@ -9,7 +9,7 @@ const getDogById = async (req, res) => {
 
     if (source === "bdd") {
       const findDog = await Dog.findByPk(id, {
-        include: Temperament, // Incluye la relación con Temperament
+        include: Temperament,
       });
 
       if (findDog) {
@@ -50,7 +50,7 @@ const getDogById = async (req, res) => {
       return res.status(200).json(dog);
     }
   } catch (error) {
-    return res.status(500).json({ message: "No se encontró ningún perro con ese ID"});
+    return res.status(500).json({ message: "No dogs found with this ID" });
   }
 };
 

@@ -33,8 +33,6 @@ export const createDog = (combinedData) => {
         return response.data;
       }
     } catch (error) {
-      // Puedes despachar una acción de error aquí si es necesario
-      // dispatch(createDogError(error.message));
       throw new Error(error.message);
     }
   };
@@ -55,14 +53,12 @@ export const searchDogs = (newName) => {
   return async (dispatch, getState) => {
     try {
       if (newName.trim() === "") {
-        // Si el valor de búsqueda está vacío, puedes restaurar la lista original de perros
         const originalDogs = getState().Alldogs;
         return dispatch({
           type: SEARCH_DOGS,
           payload: originalDogs,
         });
       } else {
-        // Realiza la búsqueda de perros en función de newName
         const response = await axios.get(
           `http://localhost:3001/dogs?name=${newName}`
         );
