@@ -1,5 +1,10 @@
-.navBar {
-  background: rgb(202, 143, 83);
+.navContainer {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Ajusta el valor según sea necesario */
+}
+
+nav {
   background: linear-gradient(
     306deg,
     rgba(202, 143, 83, 1) 0%,
@@ -7,37 +12,100 @@
     rgba(202, 143, 83, 1) 100%
   );
   display: flex;
-  justify-content: space-around;
+  justify-content:space-around;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.navBar Button {
-  background-color: rgb(247, 237, 225);
+nav Button {
+  background-color: transparent;
+  border-radius: 0px;
   border: none;
-  padding: 7px;
-  border-radius: 10px;
+  /* padding: 7px; */
+  /* border-radius: 10px; */
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
-.navBar Button:hover {
+nav Button:hover {
   background: linear-gradient(to bottom, #8a7252, #83582c);
   color: white; 
 }
 
-.navBar img {
-  width: 60px;
-  height: 65px;
+nav ul{
+  display: flex;
 }
 
-@media(max-width: 500px) {
-  .navBar{
-    margin-top: -20px;
+nav ul li{
+  list-style: none;
+}
+
+nav img {
+  margin-left: 20px;
+  width: 55px;
+  height: 55px;
+}
+
+nav .menu{
+  display: none;
+  position: absolute;
+  top:0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 2rem;
+}
+
+nav .menu span{
+  height: 0.4rem;
+  width: 100%;
+  background-color: #fff;
+  border: 0.2rem;
+}
+
+@media (min-width:660px){
+  nav ul li {
+    padding: 0.7rem;
+    margin: 0 0.5rem;
+  }
+
+}
+
+@media (max-width: 660px) {
+  nav .menu {
     display: flex;
-    flex-direction: column;
   }
 
-  .navBar Button{
-    background-color: transparent;
+  .nav {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.25rem;
+    margin: auto;
+    padding: 0;
+  }
+
+  .open {
+    display: flex;
+  }
+
+  nav Button {
+    background-color: rgb(224, 214, 200);
+    width: 100%;
+    border: 1px solid #4d3f2e;
+    padding: 8px;
+  }
+
+  nav Button:hover {
+    background: linear-gradient(to bottom, #9f8d76, #81684f);
+    color: white;
   }
 }
+
+
