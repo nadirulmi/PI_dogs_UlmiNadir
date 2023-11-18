@@ -19,6 +19,7 @@ select{
 
 h1 {
   text-align: center;
+  font-size: 25px;
 }
 
 .container input{
@@ -31,6 +32,16 @@ h1 {
 
 .form{
   display: flex;
+}
+
+.buttons{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.buttons div{
+  margin: 10px;
 }
 
 
@@ -46,7 +57,7 @@ h1 {
 
 @media (min-width:870px){
   .container{
-    height: 51.1vh; 
+    height: 55.4vh; 
   }
 }
 
@@ -71,5 +82,26 @@ h1 {
     justify-content: center;
     align-items: center;
   }
+}
+
+@media (max-width: 300px) {
+  .formSelect{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .container{
+    width: 250px;
+  }
+
+  .buttons{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ 
 }
 

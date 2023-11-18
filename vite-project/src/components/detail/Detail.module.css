@@ -39,7 +39,7 @@
     .detailContainer img{
         display: flex;
         justify-content: center;
-        border-radius: 0;
+        border-radius: 20px;
         width: 51vh;
         margin: auto;
 
@@ -52,6 +52,19 @@
 
 }
 
+@media(max-width:440px){
+    .detailContainer img{
+        display: flex;
+        justify-content: center;
+        border-radius: 20px;
+        width: 40vh;
+        margin: auto;
+    }
+
+    .detailCenter p{
+        font-size: 13px;
+    }
+}
 
 
 

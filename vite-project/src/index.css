@@ -1,3 +1,7 @@
+*{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -23,10 +27,7 @@ Button{
   cursor: pointer;
 }
 
-Button:hover {
-  background: linear-gradient(to bottom, #8a7252, #83582c);
-  color: white; /* Cambiamos el color del texto a blanco */
-}
+
 
 
 

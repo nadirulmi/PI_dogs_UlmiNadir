@@ -1,13 +1,16 @@
 .pagination{
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 10px;
 }
 
 .pagination button{
-    background-color: bisque;
+    background-color: rgb(217, 196, 169);
     border-radius: 10px;
     border-style: none;
     cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 

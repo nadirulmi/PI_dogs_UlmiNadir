@@ -22,7 +22,7 @@ nav Button {
   border-radius: 0px;
   border: none;
   /* padding: 7px; */
-  /* border-radius: 10px; */
+  border-radius: 10px;
   cursor: pointer;
   font-size: 0.9rem;
 }

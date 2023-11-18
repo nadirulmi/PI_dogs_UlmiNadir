@@ -202,7 +202,7 @@ export const Form = () => {
               )}
             </div>
 
-            <div>
+            <div className={style.formSelect}>
               <label htmlFor="temperaments">Add temperaments:</label>
               <select name="temperaments" onChange={handleTemperaments}>
                 <option value="">Select temperaments</option>
@@ -219,7 +219,7 @@ export const Form = () => {
               )}
             </div>
           </div>
-          <div>
+          <div className={style.buttons}>
               {selectedTemperaments.map((selectedTemp, index) => (
                 <div key={index}>
                   {selectedTemp}
