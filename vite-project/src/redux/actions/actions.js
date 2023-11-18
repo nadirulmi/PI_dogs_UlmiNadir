@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 import {
   GET_ALL_DOGS,
   DOG_DETAIL,
@@ -71,7 +73,14 @@ export const searchDogs = (newName) => {
         } 
       }
     } catch (error) {
-      alert(error.response.data.message)
+      Swal.fire({
+        title: 'Error',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonColor: '#D4A373', 
+        cancelButtonColor: '#d33', 
+        confirmButtonClass: 'no-border-button',
+      });
       throw new Error(error.message);
       
     }

@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createDog, getTemperaments } from "../../redux/actions/actions";
@@ -71,7 +73,7 @@ export const Form = () => {
       image: dogsForm.image,
     };
     dispatch(createDog(combinedData));
-    alert("Dog created successfully");
+    Swal.fire("Dog created successfully!");
     navigate("/dogs");
   };
 

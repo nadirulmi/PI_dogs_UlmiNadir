@@ -15,14 +15,14 @@
 .navBar Button {
   background-color: rgb(247, 237, 225);
   border: none;
-  padding: 5px;
+  padding: 7px;
   border-radius: 10px;
   cursor: pointer;
 }
 
 .navBar Button:hover {
   background: linear-gradient(to bottom, #8a7252, #83582c);
-  color: white; /* Cambiamos el color del texto a blanco */
+  color: white; 
 }
 
 .navBar img {
@@ -30,3 +30,14 @@
   height: 65px;
 }
 
+@media(max-width: 500px) {
+  .navBar{
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navBar Button{
+    background-color: transparent;
+  }
+}
