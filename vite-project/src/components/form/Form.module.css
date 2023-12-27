@@ -12,14 +12,19 @@ select{
   /* background-color:beige; */
   width: 350px;
   margin: auto; /* Centra horizontalmente el formulario */
-  padding: 20px; /* Espaciado interior para el contenido del formulario */
+  padding: 50px; /* Espaciado interior para el contenido del formulario */
   border-radius: 10px; /* Agrega bordes redondeados */
   margin-bottom: 30px;
+}
+
+.small{
+  height: 75.4vh;
 }
 
 h1 {
   text-align: center;
   font-size: 25px;
+  margin: 40px;
 }
 
 .container input{
@@ -55,11 +60,7 @@ h1 {
 }
 
 
-@media (min-width:870px){
-  .container{
-    height: 55.4vh; 
-  }
-}
+
 
 @media (max-width: 870px) {
   .form{
@@ -75,6 +76,14 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .small{
+    height: 100%;
+  }
+
+  .container{
+    padding: 20px;
   }
 
   .container input{
@@ -95,6 +104,7 @@ h1 {
 
   .container{
     width: 250px;
+    padding: 20px;
   }
 
   .buttons{

@@ -83,7 +83,7 @@ export const Form = () => {
   };
 
   return (
-    <div>
+    <div className={style.small}>
       <h1>Create your Dog</h1>
       <div className={style.container}>
         <form onSubmit={handleSubmit} onReset={handleReset}>

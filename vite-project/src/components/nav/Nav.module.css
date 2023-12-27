@@ -22,7 +22,7 @@ nav Button {
   border-radius: 0px;
   border: none;
   /* padding: 7px; */
-  border-radius: 10px;
+  
   cursor: pointer;
   font-size: 0.9rem;
 }
@@ -96,7 +96,7 @@ nav .menu span{
   }
 
   nav Button {
-    background-color: rgb(224, 214, 200);
+    background-color: antiquewhite;
     width: 100%;
     border: 1px solid #4d3f2e;
     padding: 8px;
