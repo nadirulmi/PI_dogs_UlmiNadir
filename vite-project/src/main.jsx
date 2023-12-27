@@ -9,7 +9,7 @@ import axios from "axios"
 
 // axios.defaults.baseURL = "http://localhost:3001"
 //url deploy
-axios.defaults.baseURL = "https://pi-dogs-back-five.vercel.app"
+axios.defaults.baseURL = "https://pidogsulminadir-production.up.railway.app"
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
