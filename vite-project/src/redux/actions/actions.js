@@ -17,7 +17,7 @@ import axios from "axios";
 export const getDogs = () => {
   return async (dispatch) => {
     try {
-      const response = await axios("http://localhost:3001/dogs");
+      const response = await axios("/dogs");
       const data = response.data;
       dispatch({ type: GET_ALL_DOGS, payload: data });
     } catch (error) {
@@ -27,7 +27,7 @@ export const getDogs = () => {
 };
 
 export const createDog = (combinedData) => {
-  const endpoint = "http://localhost:3001/create";
+  const endpoint = "/create";
   return async (dispatch) => {
     try {
       const response = await axios.post(endpoint, combinedData);
@@ -43,7 +43,7 @@ export const createDog = (combinedData) => {
 
 export const getTemperaments = ()=>async(dispatch)=>{
   try {
-      const {data} = await axios("http://localhost:3001/temperaments")
+      const {data} = await axios("/temperaments")
       
       dispatch({type: GET_TEMPERAMENTS, payload: data})
   } catch (error) {
@@ -62,7 +62,7 @@ export const searchDogs = (newName) => {
         });
       } else {
         const response = await axios.get(
-          `http://localhost:3001/dogs?name=${newName}`
+          `/dogs?name=${newName}`
         );
         if (response.status === 200) {
           const data = response.data;
@@ -90,7 +90,7 @@ export const searchDogs = (newName) => {
 export const getDogDetail = (id) => {
   return async (dispatch) => {
     try {
-      const response = await axios(`http://localhost:3001/dogs/${id}`);
+      const response = await axios(`/dogs/${id}`);
       const data = response.data;
       dispatch({ type: DOG_DETAIL, payload: data });
     } catch (error) {
@@ -103,7 +103,7 @@ export const getDogDetail = (id) => {
 export const deleteDog = (id) =>{
   return async (dispatch) =>{
     try {
-      await axios.delete(`http://localhost:3001/dogs/${id}`);
+      await axios.delete(`/dogs/${id}`);
       return dispatch({
         type: DELETE_DOG,
         payload: id
