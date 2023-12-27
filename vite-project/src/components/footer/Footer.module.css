@@ -1,4 +1,7 @@
 .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background: rgb(202, 143, 83);
   background: linear-gradient(
     306deg,
@@ -6,9 +9,11 @@
     rgb(142, 119, 97) 49%,
     rgba(202, 143, 83, 1) 100%
   );
-  padding: 0.2px;
+  padding: 20px; 
 }
 
 .footer p {
   text-align: center;
+  margin: 0; 
 }
+
