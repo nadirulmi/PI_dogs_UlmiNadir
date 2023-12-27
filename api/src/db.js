@@ -12,23 +12,13 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY } = process.env;
 //   }
 // );
 
-const sequelize = new Sequelize(DB_DEPLOY, {
-  logging: false, 
-  native: false,
-  dialectOptions: {
-    ssl : {
-      require: true,
-      rejectUnauthorized: false
-    }
+const sequelize = new Sequelize(
+  DB_DEPLOY,
+  {
+    logging: false, 
+    native: false, 
   }
-});
-sequelize.authenticate()
-  .then(() => {
-    console.log('Conexión exitosa');
-  })
-  .catch(err => {
-    console.error('Error de conexión:', err);
-  });
+);
 
 const basename = path.basename(__filename);
 
