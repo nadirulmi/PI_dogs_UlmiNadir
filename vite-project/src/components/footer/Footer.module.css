@@ -3,7 +3,12 @@
   bottom: 0;
   width: 100%;
   background: rgb(202, 143, 83);
-  background: rgb(102, 92, 92);
+  background: linear-gradient(
+    306deg,
+    rgba(202, 143, 83, 1) 0%,
+    rgb(142, 119, 97) 49%,
+    rgba(202, 143, 83, 1) 100%
+  );
   padding: 20px; 
 }
 
