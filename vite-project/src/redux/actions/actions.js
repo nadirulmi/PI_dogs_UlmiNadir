@@ -17,7 +17,7 @@ import axios from "axios";
 export const getDogs = () => {
   return async (dispatch) => {
     try {
-      const response = await axios("/dogs");
+      const response = await axios("https://pidogsulminadir-production.up.railway.app/dogs");
       const data = response.data;
       dispatch({ type: GET_ALL_DOGS, payload: data });
     } catch (error) {
@@ -43,7 +43,7 @@ export const createDog = (combinedData) => {
 
 export const getTemperaments = ()=>async(dispatch)=>{
   try {
-      const {data} = await axios("/temperaments")
+      const {data} = await axios("https://pidogsulminadir-production.up.railway.app/temperaments")
       
       dispatch({type: GET_TEMPERAMENTS, payload: data})
   } catch (error) {
@@ -62,7 +62,7 @@ export const searchDogs = (newName) => {
         });
       } else {
         const response = await axios.get(
-          `/dogs?name=${newName}`
+          `https://pidogsulminadir-production.up.railway.app/dogs?name=${newName}`
         );
         if (response.status === 200) {
           const data = response.data;
@@ -90,7 +90,7 @@ export const searchDogs = (newName) => {
 export const getDogDetail = (id) => {
   return async (dispatch) => {
     try {
-      const response = await axios(`/dogs/${id}`);
+      const response = await axios(`https://pidogsulminadir-production.up.railway.app/dogs/${id}`);
       const data = response.data;
       dispatch({ type: DOG_DETAIL, payload: data });
     } catch (error) {
@@ -103,7 +103,7 @@ export const getDogDetail = (id) => {
 export const deleteDog = (id) =>{
   return async (dispatch) =>{
     try {
-      await axios.delete(`/dogs/${id}`);
+      await axios.delete(`https://pidogsulminadir-production.up.railway.app/dogs/${id}`);
       return dispatch({
         type: DELETE_DOG,
         payload: id
