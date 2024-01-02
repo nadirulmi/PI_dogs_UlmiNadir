@@ -116,10 +116,8 @@ h1 {
     padding: 20px;
   }
 
-  .buttons{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .bottom{
+    margin-bottom: 50px;
   }
  
 }

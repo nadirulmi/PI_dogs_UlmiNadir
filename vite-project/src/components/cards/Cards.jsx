@@ -76,7 +76,7 @@ export default function Cards() {
 
   return (
     <div>
-      <div>
+      <div style={{marginBottom: "40px"}}>
         <SearchBar onSearch={onSearch} />
         <Select
           handleOrder={handleOrder}
