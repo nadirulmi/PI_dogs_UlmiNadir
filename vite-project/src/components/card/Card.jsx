@@ -15,6 +15,7 @@ export default function Card({ id, name, weight, temperament, image }) {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#D4A373', 
+      confirmButtonClass: 'no-border',
       cancelButtonColor: '#851E1E',
       confirmButtonText: 'Yes, delete it!',
     });
@@ -29,6 +30,7 @@ export default function Card({ id, name, weight, temperament, image }) {
           title: 'Deleted!',
           text: 'Your file has been deleted.',
           icon: 'success',
+          confirmButtonColor: '#D4A373', 
         });
 
         // Recarga la página si es necesario

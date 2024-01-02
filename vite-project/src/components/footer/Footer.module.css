@@ -1,9 +1,12 @@
 .footer {
+  
+  
+  bottom: 0;
   background: rgb(202, 143, 83);
   background: linear-gradient(
     306deg,
     rgba(202, 143, 83, 1) 0%,
-    rgb(142, 119, 97) 49%,
+    rgb(170, 137, 105) 49%,
     rgba(202, 143, 83, 1) 100%
   );
   padding: 20px; 
@@ -12,5 +15,13 @@
 .footer p {
   text-align: center;
   margin: 0; 
+  font-weight:600;
+}
+
+@media (max-width: 500px) {
+  .footer{
+    position: fixed;
+    width: 100%;
+  }
 }
 

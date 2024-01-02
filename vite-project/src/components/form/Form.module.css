@@ -6,7 +6,7 @@ select{
 
 .container {
   display: flex;
-  flex-direction: column;
+ 
   justify-content: center;
   align-items: center;
   /* background-color:beige; */
@@ -17,9 +17,13 @@ select{
   margin-bottom: 30px;
 }
 
-.small{
-  height: 75.4vh;
+.container img{
+  width: 450px;
+  height: 327px;
+  border-radius: 0%;
 }
+
+
 
 h1 {
   text-align: center;
@@ -84,6 +88,11 @@ h1 {
 
   .container{
     padding: 20px;
+    flex-direction: column;
+  }
+
+  .container img{
+    display: none;
   }
 
   .container input{

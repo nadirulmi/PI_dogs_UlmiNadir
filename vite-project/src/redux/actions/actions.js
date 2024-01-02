@@ -79,7 +79,7 @@ export const searchDogs = (newName) => {
         icon: 'error',
         confirmButtonColor: '#D4A373', 
         cancelButtonColor: '#d33', 
-        confirmButtonClass: 'no-border-button',
+        confirmButtonClass: 'no-border',
       });
       throw new Error(error.message);
       

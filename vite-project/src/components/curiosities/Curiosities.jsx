@@ -49,7 +49,7 @@ export const Curiosities = () => {
           <img src={dogsupport} alt="dog support" width="300"></img>
         </div>
       </div>
-      <div className={style.reverse}>
+      <div className={style.reverse} >
         <div>
           <h2>Owning a dog is a BIG responsibility!</h2>
           <p>
@@ -61,7 +61,7 @@ export const Curiosities = () => {
             on.
           </p>
         </div>
-        <div>
+        <div className={style.mediaq}>
           <img src={dogui} alt="dog with pretal" width="300"></img>
         </div>
       </div>

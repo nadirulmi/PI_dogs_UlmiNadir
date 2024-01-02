@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2';
-
+import dogs from "../img/dogs.jpg"
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createDog, getTemperaments } from "../../redux/actions/actions";
@@ -73,7 +73,12 @@ export const Form = () => {
       image: dogsForm.image,
     };
     dispatch(createDog(combinedData));
-    Swal.fire("Dog created successfully!");
+    Swal.fire({
+      text: "Dog created successfully!",
+      icon: "success",
+      confirmButtonColor: '#9C6630',
+    });
+   
     navigate("/dogs");
   };
 
@@ -258,6 +263,9 @@ export const Form = () => {
             <input type="reset" value="Reset" />
           </div>
         </form>
+        <div style={{marginLeft: "90px"}}>
+        <img src={dogs}></img>
+        </div>
       </div>
     </div>
   );

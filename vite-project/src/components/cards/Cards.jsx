@@ -93,7 +93,7 @@ export default function Cards() {
         />
       </div>
       <div className={style.cardsContainer}>
-        {currentDogs.map(({ id, name, image, temperament, weight }) => (
+        {currentDogs?.map(({ id, name, image, temperament, weight }) => (
           <div key={id}>
             <Card
               id={id}
