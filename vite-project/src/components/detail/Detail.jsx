@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDogDetail, cleanDogs } from "../../redux/actions/actions";
 import style from "./Detail.module.css";
+import dog from "../img/loader.gif"
 import { Button } from "../button/Button";
 
 const Detail = () => {
@@ -32,7 +33,7 @@ const Detail = () => {
     <div>
       {loading ? (
         <div style={{height: "82vh",display: "flex", justifyContent:"center", alignItems: "center"}}>
-          <span className={style.loader}></span>
+          <img src={dog}></img>
         </div>
       ) : dogsDetail ? (
         <>

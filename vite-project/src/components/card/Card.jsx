@@ -35,7 +35,7 @@ export default function Card({ id, name, weight, temperament, image }) {
           confirmButtonColor: '#D4A373', 
         });
 
-        navigate("https://pidogsulminadir-production.up.railway.app/dogs");
+        navigate("/dogs");
         
       } catch (error) {
         // Maneja cualquier error que pueda ocurrir durante la acción de eliminación

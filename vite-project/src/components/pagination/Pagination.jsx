@@ -8,9 +8,13 @@ const Pagination = ({ currentPage, totalPages, prevPage, nextPage }) => {
           &#8249;
         </button>
       )}
-      <span>
-        Página {currentPage} de {totalPages}
-      </span>
+     {
+  totalPages !== 0 && (
+    <span>
+      Página {currentPage} de {totalPages}
+    </span>
+  )
+}
       {currentPage < totalPages && (
         <button onClick={nextPage}>
           &#8250;

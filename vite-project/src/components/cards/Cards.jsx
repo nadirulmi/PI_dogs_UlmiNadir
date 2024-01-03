@@ -4,6 +4,7 @@ import Card from "../card/Card";
 import Pagination from "../pagination/Pagination";
 import SearchBar from "../searchBar/SearchBar";
 import { Nav } from "../nav/Nav";
+import dog from "../img/loader.gif"
 import style from "./Cards.module.css";
 import {
   getDogs,
@@ -76,7 +77,7 @@ export default function Cards() {
 
   return (
     <div>
-      <div style={{marginBottom: "40px"}}>
+      <div style={{ marginBottom: "40px" }}>
         <SearchBar onSearch={onSearch} />
         <Select
           handleOrder={handleOrder}
@@ -93,17 +94,23 @@ export default function Cards() {
         />
       </div>
       <div className={style.cardsContainer}>
-        {currentDogs?.map(({ id, name, image, temperament, weight }) => (
-          <div key={id}>
-            <Card
-              id={id}
-              image={image}
-              name={name}
-              temperament={temperament}
-              weight={weight}
-            />
-          </div>
-        ))}
+        {currentDogs.length === 0 ? (
+          <div style={{height: "56vh",display: "flex", justifyContent:"center", alignItems: "center"}}>
+          <img src={dog}></img>
+        </div>
+        ) : (
+          currentDogs.map(({ id, name, image, temperament, weight }) => (
+            <div key={id}>
+              <Card
+                id={id}
+                image={image}
+                name={name}
+                temperament={temperament}
+                weight={weight}
+              />
+            </div>
+          ))
+        )}
       </div>
 
       <Pagination

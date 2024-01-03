@@ -79,7 +79,7 @@ export const Form = () => {
       confirmButtonColor: '#9C6630',
     });
    
-    navigate("https://pidogsulminadir-production.up.railway.app/dogs");
+    navigate("/dogs");
   };
 
   const handleReset = () => {
