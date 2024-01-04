@@ -4,11 +4,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createDog, getTemperaments } from "../../redux/actions/actions";
 import validation from "./validation";
-import { useNavigate } from "react-router-dom";
 import style from "./Form.module.css";
 
 export const Form = () => {
-  const navigate = useNavigate();
   const tempers = useSelector((state) => state.Alltemperaments);
   const initialDogsForm = {
     name: "",
@@ -79,7 +77,6 @@ export const Form = () => {
       confirmButtonColor: '#9C6630',
     });
    
-    navigate("/dogs");
   };
 
   const handleReset = () => {
