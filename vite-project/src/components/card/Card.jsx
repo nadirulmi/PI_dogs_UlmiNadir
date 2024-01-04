@@ -22,10 +22,8 @@ export default function Card({ id, name, weight, temperament, image }) {
 
     if (result.isConfirmed) {
       try {
-        // Realiza la acción de eliminación (puedes usar dispatch aquí)
         dispatch(deleteDog(id));
 
-        // Muestra el SweetAlert2 de éxito después de realizar la acción
         await Swal.fire({
           title: 'Deleted!',
           text: 'Your file has been deleted.',
@@ -34,10 +32,6 @@ export default function Card({ id, name, weight, temperament, image }) {
         });
 
       } catch (error) {
-        // Maneja cualquier error que pueda ocurrir durante la acción de eliminación
-        console.error('Error deleting dog:', error);
-
-        // Muestra un SweetAlert2 de error
         await Swal.fire({
           title: 'Error',
           text: 'An error occurred while deleting the dog.',

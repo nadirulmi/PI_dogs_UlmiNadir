@@ -207,7 +207,7 @@ export const Form = () => {
               )}
             </div>
 
-            <div className={style.formSelect}>
+            <div className={`${style.formSelect} ${style.mediaq}`}>
               <label htmlFor="temperaments">Add temperaments:</label>
               <select name="temperaments" onChange={handleTemperaments}>
                 <option value="">Select temperaments</option>

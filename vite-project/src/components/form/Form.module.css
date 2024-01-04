@@ -9,11 +9,10 @@ select{
  
   justify-content: center;
   align-items: center;
-  /* background-color:beige; */
   width: 350px;
-  margin: auto; /* Centra horizontalmente el formulario */
-  padding: 50px; /* Espaciado interior para el contenido del formulario */
-  border-radius: 10px; /* Agrega bordes redondeados */
+  margin: auto; 
+  padding: 50px; 
+  border-radius: 10px; 
   margin-bottom: 30px;
 }
 
@@ -77,9 +76,10 @@ h1 {
 
   .bottom{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
   }
 
   .small{
@@ -100,6 +100,13 @@ h1 {
     justify-content: center;
     align-items: center;
   }
+
+  .mediaq{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media (max-width: 300px) {
@@ -114,10 +121,6 @@ h1 {
   .container{
     width: 250px;
     padding: 20px;
-  }
-
-  .bottom{
-    margin-bottom: 50px;
   }
  
 }
