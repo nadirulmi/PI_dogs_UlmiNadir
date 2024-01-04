@@ -2,13 +2,11 @@ import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 import { deleteDog } from "../../redux/actions/actions";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 
 export default function Card({ id, name, weight, temperament, image }) {
 
   const dispatch = useDispatch()
-  const navigate = useNavigate();
 
   const handlerDelete = async () => {
     const result = await Swal.fire({
@@ -35,8 +33,6 @@ export default function Card({ id, name, weight, temperament, image }) {
           confirmButtonColor: '#D4A373', 
         });
 
-        navigate("/dogs");
-        
       } catch (error) {
         // Maneja cualquier error que pueda ocurrir durante la acción de eliminación
         console.error('Error deleting dog:', error);
