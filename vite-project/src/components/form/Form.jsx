@@ -80,6 +80,7 @@ export const Form = () => {
     });
    
     navigate("/dogs");
+    window.location.reload();
   };
 
   const handleReset = () => {
