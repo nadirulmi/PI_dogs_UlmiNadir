@@ -2,12 +2,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 15px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .singleCard {
   background-color: bisque;
-  margin: 20px;
+  margin: 19px;
   padding: 10px;
   max-width: 210px;
   border-radius: 20px;

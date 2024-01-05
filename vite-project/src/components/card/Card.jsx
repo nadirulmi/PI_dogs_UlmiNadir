@@ -31,6 +31,8 @@ export default function Card({ id, name, weight, temperament, image }) {
           confirmButtonColor: '#D4A373', 
         });
 
+        window.location.reload();
+
       } catch (error) {
         await Swal.fire({
           title: 'Error',
