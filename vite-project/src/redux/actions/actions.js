@@ -27,7 +27,7 @@ export const getDogs = () => {
 };
 
 export const createDog = (combinedData) => {
-  const endpoint = "/create";
+  const endpoint = "https://pidogsulminadir-production.up.railway.app/create";
   return async (dispatch) => {
     try {
       const response = await axios.post(endpoint, combinedData);
