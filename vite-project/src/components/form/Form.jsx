@@ -79,7 +79,7 @@ export const Form = () => {
       confirmButtonColor: '#9C6630',
     });
    
-    navigate("/dogs");
+    // navigate("/dogs");
     window.location.reload();
   };
 
