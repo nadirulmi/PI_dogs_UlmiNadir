@@ -79,8 +79,8 @@ export const Form = () => {
       confirmButtonColor: '#9C6630',
     });
    
-    // navigate("/dogs");
-    window.location.reload();
+    navigate("/dogs");
+    // window.location.reload();
   };
 
   const handleReset = () => {
